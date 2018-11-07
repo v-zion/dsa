@@ -30,9 +30,8 @@
 #define THRESHOLD 100
 
 char *monitor[] = {
-  "mpih-mul.c:85",
-  "mpih-mul.c:271",
-  "mpih-div.c:356"
+  "@0x7f3",
+  "@0x834"
 };
 int nmonitor = sizeof(monitor)/sizeof(monitor[0]);
 

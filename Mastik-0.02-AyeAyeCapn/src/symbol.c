@@ -28,6 +28,7 @@
 #include <ctype.h>
 
 #include "symbol.h"
+#include "symbol_bfd.c"
 
 
 /*
@@ -95,6 +96,7 @@ uint64_t sym_loadersymboloffset(const char *file, const char *name) {
 }
 
 uint64_t sym_addresstooffset(const char *file, uint64_t address) {
+  printf("Hello\n");
   return ~0ULL;
 }
 

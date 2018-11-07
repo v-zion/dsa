@@ -110,40 +110,14 @@ configure:3036: $? = 0
 configure:3049: result: none needed
 configure:3072: checking for bfd_init in -lbfd
 configure:3097: gcc -o conftest -g -O2   conftest.c -lbfd   >&5
-/usr/bin/x86_64-linux-gnu-ld: cannot find -lbfd
-collect2: error: ld returned 1 exit status
-configure:3097: $? = 1
-configure: failed program was:
-| /* confdefs.h */
-| #define PACKAGE_NAME "mastik"
-| #define PACKAGE_TARNAME "mastik"
-| #define PACKAGE_VERSION "0.02"
-| #define PACKAGE_STRING "mastik 0.02"
-| #define PACKAGE_BUGREPORT "yval@cs.adelaide.edu.au"
-| #define PACKAGE_URL ""
-| /* end confdefs.h.  */
-| 
-| /* Override any GCC internal prototype to avoid an error.
-|    Use char because int might match the return type of a GCC
-|    builtin and then its argument prototype would still apply.  */
-| #ifdef __cplusplus
-| extern "C"
-| #endif
-| char bfd_init ();
-| int
-| main ()
-| {
-| return bfd_init ();
-|   ;
-|   return 0;
-| }
-configure:3106: result: no
+configure:3097: $? = 0
+configure:3106: result: yes
 configure:3117: checking for elf_version in -lelf
-configure:3142: gcc -o conftest -g -O2   conftest.c -lelf   >&5
+configure:3142: gcc -o conftest -g -O2   conftest.c -lelf  -lbfd  >&5
 configure:3142: $? = 0
 configure:3151: result: yes
 configure:3162: checking for dwarf_init in -ldwarf
-configure:3187: gcc -o conftest -g -O2   conftest.c -ldwarf  -lelf  >&5
+configure:3187: gcc -o conftest -g -O2   conftest.c -ldwarf  -lelf -lbfd  >&5
 /usr/bin/x86_64-linux-gnu-ld: cannot find -ldwarf
 collect2: error: ld returned 1 exit status
 configure:3187: $? = 1
@@ -155,6 +129,7 @@ configure: failed program was:
 | #define PACKAGE_STRING "mastik 0.02"
 | #define PACKAGE_BUGREPORT "yval@cs.adelaide.edu.au"
 | #define PACKAGE_URL ""
+| #define HAVE_LIBBFD 1
 | #define HAVE_LIBELF 1
 | /* end confdefs.h.  */
 | 
@@ -177,7 +152,7 @@ configure:3216: checking how to run the C preprocessor
 configure:3247: gcc -E  conftest.c
 configure:3247: $? = 0
 configure:3261: gcc -E  conftest.c
-conftest.c:10:10: fatal error: ac_nonexistent.h: No such file or directory
+conftest.c:11:10: fatal error: ac_nonexistent.h: No such file or directory
  #include <ac_nonexistent.h>
           ^~~~~~~~~~~~~~~~~~
 compilation terminated.
@@ -190,6 +165,7 @@ configure: failed program was:
 | #define PACKAGE_STRING "mastik 0.02"
 | #define PACKAGE_BUGREPORT "yval@cs.adelaide.edu.au"
 | #define PACKAGE_URL ""
+| #define HAVE_LIBBFD 1
 | #define HAVE_LIBELF 1
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
@@ -197,7 +173,7 @@ configure:3286: result: gcc -E
 configure:3306: gcc -E  conftest.c
 configure:3306: $? = 0
 configure:3320: gcc -E  conftest.c
-conftest.c:10:10: fatal error: ac_nonexistent.h: No such file or directory
+conftest.c:11:10: fatal error: ac_nonexistent.h: No such file or directory
  #include <ac_nonexistent.h>
           ^~~~~~~~~~~~~~~~~~
 compilation terminated.
@@ -210,6 +186,7 @@ configure: failed program was:
 | #define PACKAGE_STRING "mastik 0.02"
 | #define PACKAGE_BUGREPORT "yval@cs.adelaide.edu.au"
 | #define PACKAGE_URL ""
+| #define HAVE_LIBBFD 1
 | #define HAVE_LIBELF 1
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
@@ -220,7 +197,7 @@ configure:3474: result: /bin/grep -E
 configure:3479: checking for ANSI C header files
 configure:3499: gcc -c -g -O2  conftest.c >&5
 configure:3499: $? = 0
-configure:3572: gcc -o conftest -g -O2   conftest.c -lelf  >&5
+configure:3572: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
 configure:3572: $? = 0
 configure:3572: ./conftest
 configure:3572: $? = 0
@@ -303,120 +280,21 @@ configure:3611: checking for sys/prctl.h
 configure:3611: result: yes
 configure:3623: checking bfd.h usability
 configure:3623: gcc -c -g -O2  conftest.c >&5
-conftest.c:61:10: fatal error: bfd.h: No such file or directory
- #include <bfd.h>
-          ^~~~~~~
-compilation terminated.
-configure:3623: $? = 1
-configure: failed program was:
-| /* confdefs.h */
-| #define PACKAGE_NAME "mastik"
-| #define PACKAGE_TARNAME "mastik"
-| #define PACKAGE_VERSION "0.02"
-| #define PACKAGE_STRING "mastik 0.02"
-| #define PACKAGE_BUGREPORT "yval@cs.adelaide.edu.au"
-| #define PACKAGE_URL ""
-| #define HAVE_LIBELF 1
-| #define STDC_HEADERS 1
-| #define HAVE_SYS_TYPES_H 1
-| #define HAVE_SYS_STAT_H 1
-| #define HAVE_STDLIB_H 1
-| #define HAVE_STRING_H 1
-| #define HAVE_MEMORY_H 1
-| #define HAVE_STRINGS_H 1
-| #define HAVE_INTTYPES_H 1
-| #define HAVE_STDINT_H 1
-| #define HAVE_UNISTD_H 1
-| #define HAVE_FCNTL_H 1
-| #define HAVE_STDINT_H 1
-| #define HAVE_STDLIB_H 1
-| #define HAVE_STRING_H 1
-| #define HAVE_STRINGS_H 1
-| #define HAVE_UNISTD_H 1
-| #define HAVE_SCHED_H 1
-| #define HAVE_SYS_PRCTL_H 1
-| /* end confdefs.h.  */
-| #include <stdio.h>
-| #ifdef HAVE_SYS_TYPES_H
-| # include <sys/types.h>
-| #endif
-| #ifdef HAVE_SYS_STAT_H
-| # include <sys/stat.h>
-| #endif
-| #ifdef STDC_HEADERS
-| # include <stdlib.h>
-| # include <stddef.h>
-| #else
-| # ifdef HAVE_STDLIB_H
-| #  include <stdlib.h>
-| # endif
-| #endif
-| #ifdef HAVE_STRING_H
-| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
-| #  include <memory.h>
-| # endif
-| # include <string.h>
-| #endif
-| #ifdef HAVE_STRINGS_H
-| # include <strings.h>
-| #endif
-| #ifdef HAVE_INTTYPES_H
-| # include <inttypes.h>
-| #endif
-| #ifdef HAVE_STDINT_H
-| # include <stdint.h>
-| #endif
-| #ifdef HAVE_UNISTD_H
-| # include <unistd.h>
-| #endif
-| #include <bfd.h>
-configure:3623: result: no
+configure:3623: $? = 0
+configure:3623: result: yes
 configure:3623: checking bfd.h presence
 configure:3623: gcc -E  conftest.c
-conftest.c:28:10: fatal error: bfd.h: No such file or directory
- #include <bfd.h>
-          ^~~~~~~
-compilation terminated.
-configure:3623: $? = 1
-configure: failed program was:
-| /* confdefs.h */
-| #define PACKAGE_NAME "mastik"
-| #define PACKAGE_TARNAME "mastik"
-| #define PACKAGE_VERSION "0.02"
-| #define PACKAGE_STRING "mastik 0.02"
-| #define PACKAGE_BUGREPORT "yval@cs.adelaide.edu.au"
-| #define PACKAGE_URL ""
-| #define HAVE_LIBELF 1
-| #define STDC_HEADERS 1
-| #define HAVE_SYS_TYPES_H 1
-| #define HAVE_SYS_STAT_H 1
-| #define HAVE_STDLIB_H 1
-| #define HAVE_STRING_H 1
-| #define HAVE_MEMORY_H 1
-| #define HAVE_STRINGS_H 1
-| #define HAVE_INTTYPES_H 1
-| #define HAVE_STDINT_H 1
-| #define HAVE_UNISTD_H 1
-| #define HAVE_FCNTL_H 1
-| #define HAVE_STDINT_H 1
-| #define HAVE_STDLIB_H 1
-| #define HAVE_STRING_H 1
-| #define HAVE_STRINGS_H 1
-| #define HAVE_UNISTD_H 1
-| #define HAVE_SCHED_H 1
-| #define HAVE_SYS_PRCTL_H 1
-| /* end confdefs.h.  */
-| #include <bfd.h>
-configure:3623: result: no
+configure:3623: $? = 0
+configure:3623: result: yes
 configure:3623: checking for bfd.h
-configure:3623: result: no
-configure:3661: checking mach-o/loader.h usability
-configure:3661: gcc -c -g -O2  conftest.c >&5
-conftest.c:61:10: fatal error: mach-o/loader.h: No such file or directory
- #include <mach-o/loader.h>
-          ^~~~~~~~~~~~~~~~~
+configure:3623: result: yes
+configure:3643: checking libdwarf.h usability
+configure:3643: gcc -c -g -O2  conftest.c >&5
+conftest.c:64:10: fatal error: libdwarf.h: No such file or directory
+ #include <libdwarf.h>
+          ^~~~~~~~~~~~
 compilation terminated.
-configure:3661: $? = 1
+configure:3643: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "mastik"
@@ -425,6 +303,7 @@ configure: failed program was:
 | #define PACKAGE_STRING "mastik 0.02"
 | #define PACKAGE_BUGREPORT "yval@cs.adelaide.edu.au"
 | #define PACKAGE_URL ""
+| #define HAVE_LIBBFD 1
 | #define HAVE_LIBELF 1
 | #define STDC_HEADERS 1
 | #define HAVE_SYS_TYPES_H 1
@@ -444,6 +323,8 @@ configure: failed program was:
 | #define HAVE_UNISTD_H 1
 | #define HAVE_SCHED_H 1
 | #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_BFD_H 1
+| #define HAVE_SYMBOLS 1
 | /* end confdefs.h.  */
 | #include <stdio.h>
 | #ifdef HAVE_SYS_TYPES_H
@@ -478,15 +359,15 @@ configure: failed program was:
 | #ifdef HAVE_UNISTD_H
 | # include <unistd.h>
 | #endif
-| #include <mach-o/loader.h>
-configure:3661: result: no
-configure:3661: checking mach-o/loader.h presence
-configure:3661: gcc -E  conftest.c
-conftest.c:28:10: fatal error: mach-o/loader.h: No such file or directory
- #include <mach-o/loader.h>
-          ^~~~~~~~~~~~~~~~~
+| #include <libdwarf.h>
+configure:3643: result: no
+configure:3643: checking libdwarf.h presence
+configure:3643: gcc -E  conftest.c
+conftest.c:31:10: fatal error: libdwarf.h: No such file or directory
+ #include <libdwarf.h>
+          ^~~~~~~~~~~~
 compilation terminated.
-configure:3661: $? = 1
+configure:3643: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "mastik"
@@ -495,6 +376,7 @@ configure: failed program was:
 | #define PACKAGE_STRING "mastik 0.02"
 | #define PACKAGE_BUGREPORT "yval@cs.adelaide.edu.au"
 | #define PACKAGE_URL ""
+| #define HAVE_LIBBFD 1
 | #define HAVE_LIBELF 1
 | #define STDC_HEADERS 1
 | #define HAVE_SYS_TYPES_H 1
@@ -514,11 +396,128 @@ configure: failed program was:
 | #define HAVE_UNISTD_H 1
 | #define HAVE_SCHED_H 1
 | #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_BFD_H 1
+| #define HAVE_SYMBOLS 1
 | /* end confdefs.h.  */
-| #include <mach-o/loader.h>
-configure:3661: result: no
-configure:3661: checking for mach-o/loader.h
-configure:3661: result: no
+| #include <libdwarf.h>
+configure:3643: result: no
+configure:3643: checking for libdwarf.h
+configure:3643: result: no
+configure:3643: checking libdwarf/libdwarf.h usability
+configure:3643: gcc -c -g -O2  conftest.c >&5
+conftest.c:64:10: fatal error: libdwarf/libdwarf.h: No such file or directory
+ #include <libdwarf/libdwarf.h>
+          ^~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+configure:3643: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "mastik"
+| #define PACKAGE_TARNAME "mastik"
+| #define PACKAGE_VERSION "0.02"
+| #define PACKAGE_STRING "mastik 0.02"
+| #define PACKAGE_BUGREPORT "yval@cs.adelaide.edu.au"
+| #define PACKAGE_URL ""
+| #define HAVE_LIBBFD 1
+| #define HAVE_LIBELF 1
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_SCHED_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_BFD_H 1
+| #define HAVE_SYMBOLS 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <libdwarf/libdwarf.h>
+configure:3643: result: no
+configure:3643: checking libdwarf/libdwarf.h presence
+configure:3643: gcc -E  conftest.c
+conftest.c:31:10: fatal error: libdwarf/libdwarf.h: No such file or directory
+ #include <libdwarf/libdwarf.h>
+          ^~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+configure:3643: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "mastik"
+| #define PACKAGE_TARNAME "mastik"
+| #define PACKAGE_VERSION "0.02"
+| #define PACKAGE_STRING "mastik 0.02"
+| #define PACKAGE_BUGREPORT "yval@cs.adelaide.edu.au"
+| #define PACKAGE_URL ""
+| #define HAVE_LIBBFD 1
+| #define HAVE_LIBELF 1
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_SCHED_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_BFD_H 1
+| #define HAVE_SYMBOLS 1
+| /* end confdefs.h.  */
+| #include <libdwarf/libdwarf.h>
+configure:3643: result: no
+configure:3643: checking for libdwarf/libdwarf.h
+configure:3643: result: no
 configure:3680: checking for inline
 configure:3696: gcc -c -g -O2  conftest.c >&5
 configure:3696: $? = 0
@@ -528,7 +527,7 @@ configure:3722: gcc -c -g -O2  conftest.c >&5
 configure:3722: $? = 0
 configure:3722: gcc -c -g -O2  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:65:12: error: size of array 'test_array' is negative
+conftest.c:68:12: error: size of array 'test_array' is negative
  static int test_array [1 - 2 * !((int16_t) (((((int16_t) 1 << N) << N) - 1) * 2 + 1)
             ^~~~~~~~~~
 configure:3722: $? = 1
@@ -540,6 +539,7 @@ configure: failed program was:
 | #define PACKAGE_STRING "mastik 0.02"
 | #define PACKAGE_BUGREPORT "yval@cs.adelaide.edu.au"
 | #define PACKAGE_URL ""
+| #define HAVE_LIBBFD 1
 | #define HAVE_LIBELF 1
 | #define STDC_HEADERS 1
 | #define HAVE_SYS_TYPES_H 1
@@ -559,6 +559,8 @@ configure: failed program was:
 | #define HAVE_UNISTD_H 1
 | #define HAVE_SCHED_H 1
 | #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_BFD_H 1
+| #define HAVE_SYMBOLS 1
 | /* end confdefs.h.  */
 | #include <stdio.h>
 | #ifdef HAVE_SYS_TYPES_H
@@ -611,7 +613,7 @@ configure:3733: gcc -c -g -O2  conftest.c >&5
 configure:3733: $? = 0
 configure:3733: gcc -c -g -O2  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:64:20: error: expected expression before ')' token
+conftest.c:67:20: error: expected expression before ')' token
  if (sizeof ((pid_t)))
                     ^
 configure:3733: $? = 1
@@ -623,6 +625,7 @@ configure: failed program was:
 | #define PACKAGE_STRING "mastik 0.02"
 | #define PACKAGE_BUGREPORT "yval@cs.adelaide.edu.au"
 | #define PACKAGE_URL ""
+| #define HAVE_LIBBFD 1
 | #define HAVE_LIBELF 1
 | #define STDC_HEADERS 1
 | #define HAVE_SYS_TYPES_H 1
@@ -642,6 +645,8 @@ configure: failed program was:
 | #define HAVE_UNISTD_H 1
 | #define HAVE_SCHED_H 1
 | #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_BFD_H 1
+| #define HAVE_SYMBOLS 1
 | /* end confdefs.h.  */
 | #include <stdio.h>
 | #ifdef HAVE_SYS_TYPES_H
@@ -690,7 +695,7 @@ configure:3744: gcc -c -g -O2  conftest.c >&5
 configure:3744: $? = 0
 configure:3744: gcc -c -g -O2  conftest.c >&5
 conftest.c: In function 'main':
-conftest.c:64:21: error: expected expression before ')' token
+conftest.c:67:21: error: expected expression before ')' token
  if (sizeof ((size_t)))
                      ^
 configure:3744: $? = 1
@@ -702,6 +707,7 @@ configure: failed program was:
 | #define PACKAGE_STRING "mastik 0.02"
 | #define PACKAGE_BUGREPORT "yval@cs.adelaide.edu.au"
 | #define PACKAGE_URL ""
+| #define HAVE_LIBBFD 1
 | #define HAVE_LIBELF 1
 | #define STDC_HEADERS 1
 | #define HAVE_SYS_TYPES_H 1
@@ -721,6 +727,8 @@ configure: failed program was:
 | #define HAVE_UNISTD_H 1
 | #define HAVE_SCHED_H 1
 | #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_BFD_H 1
+| #define HAVE_SYMBOLS 1
 | /* end confdefs.h.  */
 | #include <stdio.h>
 | #ifdef HAVE_SYS_TYPES_H
@@ -782,7 +790,7 @@ configure:3795: $? = 0
 configure:3795: result: yes
 configure:3813: checking vfork.h usability
 configure:3813: gcc -c -g -O2  conftest.c >&5
-conftest.c:61:10: fatal error: vfork.h: No such file or directory
+conftest.c:64:10: fatal error: vfork.h: No such file or directory
  #include <vfork.h>
           ^~~~~~~~~
 compilation terminated.
@@ -795,6 +803,7 @@ configure: failed program was:
 | #define PACKAGE_STRING "mastik 0.02"
 | #define PACKAGE_BUGREPORT "yval@cs.adelaide.edu.au"
 | #define PACKAGE_URL ""
+| #define HAVE_LIBBFD 1
 | #define HAVE_LIBELF 1
 | #define STDC_HEADERS 1
 | #define HAVE_SYS_TYPES_H 1
@@ -814,6 +823,8 @@ configure: failed program was:
 | #define HAVE_UNISTD_H 1
 | #define HAVE_SCHED_H 1
 | #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_BFD_H 1
+| #define HAVE_SYMBOLS 1
 | /* end confdefs.h.  */
 | #include <stdio.h>
 | #ifdef HAVE_SYS_TYPES_H
@@ -852,7 +863,7 @@ configure: failed program was:
 configure:3813: result: no
 configure:3813: checking vfork.h presence
 configure:3813: gcc -E  conftest.c
-conftest.c:28:10: fatal error: vfork.h: No such file or directory
+conftest.c:31:10: fatal error: vfork.h: No such file or directory
  #include <vfork.h>
           ^~~~~~~~~
 compilation terminated.
@@ -865,6 +876,7 @@ configure: failed program was:
 | #define PACKAGE_STRING "mastik 0.02"
 | #define PACKAGE_BUGREPORT "yval@cs.adelaide.edu.au"
 | #define PACKAGE_URL ""
+| #define HAVE_LIBBFD 1
 | #define HAVE_LIBELF 1
 | #define STDC_HEADERS 1
 | #define HAVE_SYS_TYPES_H 1
@@ -884,24 +896,26 @@ configure: failed program was:
 | #define HAVE_UNISTD_H 1
 | #define HAVE_SCHED_H 1
 | #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_BFD_H 1
+| #define HAVE_SYMBOLS 1
 | /* end confdefs.h.  */
 | #include <vfork.h>
 configure:3813: result: no
 configure:3813: checking for vfork.h
 configure:3813: result: no
 configure:3826: checking for fork
-configure:3826: gcc -o conftest -g -O2   conftest.c -lelf  >&5
-conftest.c:51:6: warning: conflicting types for built-in function 'fork' [-Wbuiltin-declaration-mismatch]
+configure:3826: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
+conftest.c:54:6: warning: conflicting types for built-in function 'fork' [-Wbuiltin-declaration-mismatch]
  char fork ();
       ^~~~
 configure:3826: $? = 0
 configure:3826: result: yes
 configure:3826: checking for vfork
-configure:3826: gcc -o conftest -g -O2   conftest.c -lelf  >&5
+configure:3826: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
 configure:3826: $? = 0
 configure:3826: result: yes
 configure:3836: checking for working fork
-configure:3858: gcc -o conftest -g -O2   conftest.c -lelf  >&5
+configure:3858: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
 configure:3858: $? = 0
 configure:3858: ./conftest
 configure:3858: $? = 0
@@ -911,7 +925,7 @@ configure:3999: result: yes
 configure:4026: checking for stdlib.h
 configure:4026: result: yes
 configure:4036: checking for GNU libc compatible malloc
-configure:4060: gcc -o conftest -g -O2   conftest.c -lelf  >&5
+configure:4060: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
 configure:4060: $? = 0
 configure:4060: ./conftest
 configure:4060: $? = 0
@@ -925,11 +939,11 @@ configure:4097: gcc -c -g -O2  conftest.c >&5
 configure:4097: $? = 0
 configure:4097: result: yes
 configure:4117: checking for getpagesize
-configure:4117: gcc -o conftest -g -O2   conftest.c -lelf  >&5
+configure:4117: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
 configure:4117: $? = 0
 configure:4117: result: yes
 configure:4126: checking for working mmap
-configure:4273: gcc -o conftest -g -O2   conftest.c -lelf  >&5
+configure:4273: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
 configure:4273: $? = 0
 configure:4273: ./conftest
 configure:4273: $? = 0
@@ -937,61 +951,61 @@ configure:4283: result: yes
 configure:4294: checking for stdlib.h
 configure:4294: result: yes
 configure:4304: checking for GNU libc compatible realloc
-configure:4328: gcc -o conftest -g -O2   conftest.c -lelf  >&5
+configure:4328: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
 configure:4328: $? = 0
 configure:4328: ./conftest
 configure:4328: $? = 0
 configure:4338: result: yes
 configure:4362: checking for bzero
-configure:4362: gcc -o conftest -g -O2   conftest.c -lelf  >&5
-conftest.c:64:6: warning: conflicting types for built-in function 'bzero' [-Wbuiltin-declaration-mismatch]
+configure:4362: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
+conftest.c:67:6: warning: conflicting types for built-in function 'bzero' [-Wbuiltin-declaration-mismatch]
  char bzero ();
       ^~~~~
 configure:4362: $? = 0
 configure:4362: result: yes
 configure:4362: checking for memset
-configure:4362: gcc -o conftest -g -O2   conftest.c -lelf  >&5
-conftest.c:65:6: warning: conflicting types for built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+configure:4362: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
+conftest.c:68:6: warning: conflicting types for built-in function 'memset' [-Wbuiltin-declaration-mismatch]
  char memset ();
       ^~~~~~
 configure:4362: $? = 0
 configure:4362: result: yes
 configure:4362: checking for munmap
-configure:4362: gcc -o conftest -g -O2   conftest.c -lelf  >&5
+configure:4362: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
 configure:4362: $? = 0
 configure:4362: result: yes
 configure:4362: checking for strchr
-configure:4362: gcc -o conftest -g -O2   conftest.c -lelf  >&5
-conftest.c:67:6: warning: conflicting types for built-in function 'strchr' [-Wbuiltin-declaration-mismatch]
+configure:4362: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
+conftest.c:70:6: warning: conflicting types for built-in function 'strchr' [-Wbuiltin-declaration-mismatch]
  char strchr ();
       ^~~~~~
 configure:4362: $? = 0
 configure:4362: result: yes
 configure:4362: checking for strdup
-configure:4362: gcc -o conftest -g -O2   conftest.c -lelf  >&5
-conftest.c:68:6: warning: conflicting types for built-in function 'strdup' [-Wbuiltin-declaration-mismatch]
+configure:4362: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
+conftest.c:71:6: warning: conflicting types for built-in function 'strdup' [-Wbuiltin-declaration-mismatch]
  char strdup ();
       ^~~~~~
 configure:4362: $? = 0
 configure:4362: result: yes
 configure:4362: checking for strtoul
-configure:4362: gcc -o conftest -g -O2   conftest.c -lelf  >&5
+configure:4362: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
 configure:4362: $? = 0
 configure:4362: result: yes
 configure:4362: checking for strtoull
-configure:4362: gcc -o conftest -g -O2   conftest.c -lelf  >&5
+configure:4362: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
 configure:4362: $? = 0
 configure:4362: result: yes
 configure:4362: checking for uname
-configure:4362: gcc -o conftest -g -O2   conftest.c -lelf  >&5
+configure:4362: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
 configure:4362: $? = 0
 configure:4362: result: yes
 configure:4374: checking for mmap64
-configure:4374: gcc -o conftest -g -O2   conftest.c -lelf  >&5
+configure:4374: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
 configure:4374: $? = 0
 configure:4374: result: yes
 configure:4374: checking for sched_setaffinity
-configure:4374: gcc -o conftest -g -O2   conftest.c -lelf  >&5
+configure:4374: gcc -o conftest -g -O2   conftest.c -lelf -lbfd  >&5
 configure:4374: $? = 0
 configure:4374: result: yes
 configure:4507: creating ./config.status
@@ -1011,11 +1025,11 @@ generated by GNU Autoconf 2.69.  Invocation command line was
 
 on neo
 
-config.status:832: creating Makefile
-config.status:832: creating src/Makefile
-config.status:832: creating demo/Makefile
-config.status:832: creating src/config.h
-config.status:1002: src/config.h is unchanged
+config.status:835: creating Makefile
+config.status:835: creating src/Makefile
+config.status:835: creating demo/Makefile
+config.status:835: creating src/config.h
+config.status:1005: src/config.h is unchanged
 
 ## ---------------- ##
 ## Cache variables. ##
@@ -1064,10 +1078,11 @@ ac_cv_func_strtoull=yes
 ac_cv_func_uname=yes
 ac_cv_func_vfork=yes
 ac_cv_func_vfork_works=yes
-ac_cv_header_bfd_h=no
+ac_cv_header_bfd_h=yes
 ac_cv_header_fcntl_h=yes
 ac_cv_header_inttypes_h=yes
-ac_cv_header_mach_o_loader_h=no
+ac_cv_header_libdwarf_h=no
+ac_cv_header_libdwarf_libdwarf_h=no
 ac_cv_header_memory_h=yes
 ac_cv_header_sched_h=yes
 ac_cv_header_stdc=yes
@@ -1081,7 +1096,7 @@ ac_cv_header_sys_stat_h=yes
 ac_cv_header_sys_types_h=yes
 ac_cv_header_unistd_h=yes
 ac_cv_header_vfork_h=no
-ac_cv_lib_bfd_bfd_init=no
+ac_cv_lib_bfd_bfd_init=yes
 ac_cv_lib_dwarf_dwarf_init=no
 ac_cv_lib_elf_elf_version=yes
 ac_cv_objext=o
@@ -1111,7 +1126,7 @@ EXEEXT=''
 GREP='/bin/grep'
 LDFLAGS=''
 LIBOBJS=''
-LIBS='-lelf '
+LIBS='-lelf -lbfd '
 LTLIBOBJS=''
 OBJEXT='o'
 PACKAGE_BUGREPORT='yval@cs.adelaide.edu.au'
@@ -1122,7 +1137,7 @@ PACKAGE_URL=''
 PACKAGE_VERSION='0.02'
 PATH_SEPARATOR=':'
 SHELL='/bin/bash'
-SYMBOL_SRCS=''
+SYMBOL_SRCS='symbol_bfd.c'
 ac_ct_CC='gcc'
 bindir='${exec_prefix}/bin'
 build_alias=''
@@ -1161,6 +1176,7 @@ target_alias=''
 #define PACKAGE_STRING "mastik 0.02"
 #define PACKAGE_BUGREPORT "yval@cs.adelaide.edu.au"
 #define PACKAGE_URL ""
+#define HAVE_LIBBFD 1
 #define HAVE_LIBELF 1
 #define STDC_HEADERS 1
 #define HAVE_SYS_TYPES_H 1
@@ -1180,6 +1196,8 @@ target_alias=''
 #define HAVE_UNISTD_H 1
 #define HAVE_SCHED_H 1
 #define HAVE_SYS_PRCTL_H 1
+#define HAVE_BFD_H 1
+#define HAVE_SYMBOLS 1
 #define HAVE_FORK 1
 #define HAVE_VFORK 1
 #define HAVE_WORKING_VFORK 1
