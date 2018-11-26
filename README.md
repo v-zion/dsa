@@ -18,10 +18,8 @@ make
 sudo make install
 ```
 Copy the given flushreload.c and plot.py in the flush-reload-attacks/flush-reload/myversion and redirect to this folder\
-Run ```
-make
-``` in the above folder\
-Run gdb, then run command file /usr/local/ssl/bin/openssl to load debugging symbols\
+Run ```make``` in the above folder\
+Run ```gdb```, then run command file /usr/local/ssl/bin/openssl to load debugging symbols\
 Run ```break bn_sqr8x_mont``` inside gdb and note the virtual address printed(V1)\
 Run ```break bn_mul4x_mont``` inside gdb and note the virtual address printed(V2)\
 ```
