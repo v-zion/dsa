@@ -1,13 +1,3 @@
-# Cache Timing using DSA Algorithm
-### Team Members
-<ul>
-	<li>Animesh Bohara</li>
-	<li>Ankit</li>
-	<li>Anmol Singh</li>
-	<li>Eashan Gupta</li>
-	<li>Shourya Pandey</li>
-</ul>
-
 ### Workflow
 Download OpenSSL 1.0.2h source code from https://www.openssl.org/source/old/1.0.2/ \
 Go to the installation directory and run ./config. Do not run make depend at this point\
@@ -30,12 +20,3 @@ Breaking on Lsqr4x_shift_n_add, L8x_reduce, L1st4x, Louter4x, Lsqr4x_inner, Linn
 ### Ideal parameters
 Threshold : 80\
 Slot size : 2048
-
-### Resources
-<ol>
-	<li>Cache-Timing Techniques: Exploiting the DSA Algorithm - https://aaltodoc.aalto.fi/bitstream/handle/123456789/21579/master_Pereida_Garcia_Cesar_2016.pdf?sequence=2&isAllowed=y</li>
-	<li>Mastik - https://cs.adelaide.edu.au/~yval/Mastik/?fbclid=IwAR2hGZZjn1zFULJPkjfsrJZlfN23pcYQg1M1I-gShnoQdaN5BzinsMM4Ow0</li>
-	<li>Mastik Tutorial - https://cs.adelaide.edu.au/~yval/CHES16/?fbclid=IwAR0iWFJXs7-JhOXMH_jTsQTzrQ91VOMt4OoFbN3pgbzT-Ha5Uy0dwV7-S1k</li>
-	<li>Flush Reload Attacks (Github Repo) - https://github.com/defuse/flush-reload-attacks</li>
-	<li>Side Channel Attack Tutorial - https://cryptologie.net/article/367/ches-2016-tutorial-part-2-micro-architectural-side-channel-attacks/?fbclid=IwAR0Kyk1BpvkNUbZBGlAa5Vtc2fWj8C1ydHcgFd25CbGGglafSsp1nMu7XH8</li>
-</ol>
